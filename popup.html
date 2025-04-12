@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhancement Settings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Enhancement Settings</h1>
+
+        <div class="toggle-group">
+            <div class="toggle-item">
+                <label for="audioOnly">Audio Only</label>
+                <div class="toggle">
+                    <input type="radio" id="audioOnly" name="mode" value="audio">
+                    <span class="slider"></span>
+                </div>
+            </div>
+
+            <div class="toggle-item">
+                <label for="videoOnly">Video Only</label>
+                <div class="toggle">
+                    <input type="radio" id="videoOnly" name="mode" value="video">
+                    <span class="slider"></span>
+                </div>
+            </div>
+
+            <div class="toggle-item">
+                <label for="both">Both</label>
+                <div class="toggle">
+                    <input type="radio" id="both" name="mode" value="both" checked>
+                    <span class="slider"></span>
+                </div>
+            </div>
+        </div>
+
+        <button id="saveButton">
+            <span class="button-text">Enhance</span>
+            <div class="loading-spinner"></div>
+        </button>
+
+        <div class="enhancement-overlay">
+            <div class="enhancement-content">
+                <div class="enhancement-spinner"></div>
+                <p>Enhancing...</p>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
