@@ -1,19 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading Animation</title>
-    <link rel="stylesheet" href="styless.css">
-</head>
-<body>
-    <div class="container">
-        <div class="loading-text">Loading model libraries...</div>
-        <div class="floating-i">
-            <img src="waterdrop.png", alt="!" />
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time Video & Audio Enhancer</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/utilities.css">
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <div class="logo">
+          <span class="logo-icon"></span>
+          <h1>Enhancer</h1>
         </div>
-        <div class="shadow"></div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-light"></span>
+          <span class="icon-dark"></span>
+        </button>
+      </header>
+      
+      <main class="app-main">
+        <section class="status-container">
+          <div class="status-indicator">
+            <div class="status-ring">
+              <div class="status-circle" id="statusCircle"></div>
+            </div>
+            <div class="status-text">
+              <h2 id="statusText">Enhancement Active</h2>
+              <p id="statusDetails">Optimizing video & audio</p>
+            </div>
+          </div>
+        </section>
+        
+        <section class="enhancement-controls">
+          <div class="control-group">
+            <button id="videoEnhancement" class="enhancement-button active">
+              <span class="enhancement-icon video-icon"></span>
+              <span class="enhancement-label">Video Enhancement</span>
+            </button>
+          </div>
+          
+          <div class="control-group">
+            <button id="audioEnhancement" class="enhancement-button active">
+              <span class="enhancement-icon audio-icon"></span>
+              <span class="enhancement-label">Audio Enhancement</span>
+            </button>
+          </div>
+        </section>
+        
+        <section class="platform-selector">
+          <h3>Optimize for:</h3>
+          <div class="platform-buttons">
+            <button class="platform-button active" data-platform="zoom">Zoom</button>
+            <button class="platform-button" data-platform="meet">Google Meet</button>
+            <button class="platform-button" data-platform="twitch">Twitch</button>
+            <button class="platform-button" data-platform="custom">Custom</button>
+          </div>
+        </section>
+        
+        <section class="advanced-settings-toggle">
+          <button id="advancedToggle" class="advanced-toggle">
+            <span>Advanced Settings</span>
+            <span class="toggle-icon"></span>
+          </button>
+        </section>
+        
+        <section id="advancedSettings" class="advanced-settings hidden">
+          <div class="settings-grid">
+            <div class="setting-group">
+              <h4>Video Quality</h4>
+              <div class="setting-control">
+                <label for="videoQuality">Resolution Enhancement (px)</label>
+                <input type="number" id="videoQuality" min="480" max="4096" step="1" value="1080" class="quality-input">
+              </div>
+            </div>
+            
+            <div class="setting-group">
+              <h4>Audio Quality</h4>
+              <div class="setting-control">
+                <label for="audioQuality">Sample Rate (Hz)</label>
+                <input type="number" id="audioQuality" min="8000" max="192000" step="100" value="48000" class="quality-input">
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      
+      <footer class="app-footer">
+        <p>Real-Time Video & Audio Enhancer v1.0</p>
+      </footer>
     </div>
-    <script src="script.js"></script>
-</body>
+    
+    <script type="module" src="js/main.js"></script>
+  </body>
 </html>

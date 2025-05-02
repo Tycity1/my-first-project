@@ -1,0 +1,114 @@
+/* Animation Utilities */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Status Animation */
+.status-circle.active {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* Transition Classes */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity var(--transition-normal);
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.slide-enter {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.slide-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+.slide-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.slide-exit-active {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+/* Advanced Settings Animation */
+.settings-reveal {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-normal) ease-in-out;
+}
+
+.settings-reveal.open {
+  max-height: 1000px; /* Large enough value to ensure content fits */
+}
+
+/* Button Animation */
+.button-press {
+  transform: scale(1);
+  transition: transform var(--transition-fast);
+}
+
+.button-press:active {
+  transform: scale(0.95);
+}
