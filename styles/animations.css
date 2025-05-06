@@ -46,9 +46,94 @@
   to { transform: rotate(360deg); }
 }
 
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb), 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 12px rgba(var(--color-primary-rgb), 0);
+  }
+}
+
 /* Status Animation */
 .status-circle.active {
   animation: pulse 2s infinite ease-in-out;
+}
+
+/* Enhancement Button Animations */
+.enhancement-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.enhancement-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.enhancement-button:active {
+  transform: translateY(0);
+}
+
+.enhancement-button.active .enhancement-icon {
+  animation: bounce 1s infinite ease-in-out;
+}
+
+/* Platform Button Animations */
+.platform-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.platform-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.platform-button:active {
+  transform: translateY(0);
+}
+
+.platform-button.active {
+  animation: ripple 1.5s infinite;
+}
+
+/* Advanced Settings Animation */
+.advanced-settings {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: top;
+}
+
+.advanced-settings.hidden {
+  transform: scaleY(0);
+  opacity: 0;
+}
+
+.advanced-settings:not(.hidden) {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+/* Toggle Icon Animation */
+.toggle-icon {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.advanced-toggle[aria-expanded="true"] .toggle-icon {
+  transform: rotate(-180deg);
+}
+
+/* Input Focus Animation */
+.quality-input:focus {
+  transform: scale(1.02);
+  transition: all 0.2s ease;
 }
 
 /* Transition Classes */
@@ -90,25 +175,4 @@
   transform: translateY(20px);
   opacity: 0;
   transition: transform var(--transition-normal), opacity var(--transition-normal);
-}
-
-/* Advanced Settings Animation */
-.settings-reveal {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height var(--transition-normal) ease-in-out;
-}
-
-.settings-reveal.open {
-  max-height: 1000px; /* Large enough value to ensure content fits */
-}
-
-/* Button Animation */
-.button-press {
-  transform: scale(1);
-  transition: transform var(--transition-fast);
-}
-
-.button-press:active {
-  transform: scale(0.95);
 }

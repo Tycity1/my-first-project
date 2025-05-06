@@ -37,10 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyPlatformSettings(platform) {
     const settings = getPlatformSettings(platform);
     
-    if (!videoQuality || !audioQuality) return;
+    if (videoQuality) {
+      videoQuality.value = settings.videoQuality;
+    }
     
-    videoQuality.value = settings.videoQuality;
-    audioQuality.value = settings.audioQuality;
+    if (audioQuality) {
+      audioQuality.value = settings.audioQuality;
+    }
     
     // Animate changes
     const statusCircle = document.getElementById('statusCircle');

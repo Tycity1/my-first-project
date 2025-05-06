@@ -15,18 +15,22 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Update UI based on status
   function updateStatusUI() {
-    if (!statusCircle || !statusText || !statusDetails) return;
+    if (statusCircle) {
+      if (isActive) {
+        statusCircle.classList.remove('inactive');
+        statusCircle.classList.add('active');
+      } else {
+        statusCircle.classList.remove('active');
+        statusCircle.classList.add('inactive');
+      }
+    }
     
-    if (isActive) {
-      statusCircle.classList.remove('inactive');
-      statusCircle.classList.add('active');
-      statusText.textContent = 'Enhancement Active';
-      statusDetails.textContent = 'Optimizing video & audio';
-    } else {
-      statusCircle.classList.remove('active');
-      statusCircle.classList.add('inactive');
-      statusText.textContent = 'Enhancement Disabled';
-      statusDetails.textContent = 'Not optimizing streams';
+    if (statusText) {
+      statusText.textContent = isActive ? 'Enhancement Active' : 'Enhancement Disabled';
+    }
+    
+    if (statusDetails) {
+      statusDetails.textContent = isActive ? 'Optimizing video & audio' : 'Not optimizing streams';
     }
   }
   
@@ -45,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Reset after a few seconds
       setTimeout(() => {
-        if (isActive) {
+        if (isActive && statusCircle && statusDetails) {
           statusCircle.classList.remove('warning');
           statusCircle.classList.add('active');
           statusDetails.textContent = 'Optimizing video & audio';
