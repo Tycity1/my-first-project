@@ -332,3 +332,113 @@
 .hidden {
   display: none;
 }
+
+/* Settings Panel */
+.settings-panel {
+  position: absolute;
+  top: calc(var(--header-height) + 8px);
+  right: -280px;
+  width: 280px;
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+  transition: right var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: var(--z-index-modal);
+}
+
+.settings-panel.open {
+  right: 8px;
+}
+
+.settings-header {
+  padding: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.settings-header h3 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.settings-content {
+  padding: var(--space-3);
+}
+
+.settings-group {
+  margin-bottom: var(--space-3);
+}
+
+.settings-group:last-child {
+  margin-bottom: 0;
+}
+
+.settings-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+}
+
+.settings-checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--border-radius-sm);
+  border: 2px solid var(--color-border);
+  appearance: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.settings-checkbox:checked {
+  background-color: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+}
+
+/* Header Controls */
+.header-controls {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.icon-button {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-full);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.icon-button:hover {
+  background-color: var(--color-neutral-100);
+  transform: scale(1.1);
+}
+
+[data-theme="dark"] .icon-button:hover {
+  background-color: var(--color-neutral-800);
+}
+
+.icon-settings,
+.icon-theme,
+.icon-close {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.icon-button:hover .icon-settings,
+.icon-button:hover .icon-theme,
+.icon-button:hover .icon-close {
+  color: var(--color-primary-500);
+}
