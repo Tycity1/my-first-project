@@ -3,8 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const settingsToggle = document.getElementById('settingsToggle');
   const closeSettings = document.getElementById('closeSettings');
   const settingsPanel = document.getElementById('settingsPanel');
-  const autoStart = document.getElementById('autoStart');
-  const notifications = document.getElementById('notifications');
+  
+  if (!settingsToggle || !closeSettings || !settingsPanel) {
+    console.warn('Required settings elements not found in the DOM');
+    return;
+  }
   
   let isAnimating = false;
   
@@ -50,26 +53,4 @@ document.addEventListener('DOMContentLoaded', () => {
     settingsPanel.classList.remove('open');
     settingsToggle.setAttribute('aria-expanded', 'false');
   }
-  
-  // Load and save settings
-  function loadSettings() {
-    const settings = JSON.parse(localStorage.getItem('quickSettings') || '{}');
-    autoStart.checked = settings.autoStart || false;
-    notifications.checked = settings.notifications || false;
-  }
-  
-  function saveSettings() {
-    const settings = {
-      autoStart: autoStart.checked,
-      notifications: notifications.checked
-    };
-    localStorage.setItem('quickSettings', JSON.stringify(settings));
-  }
-  
-  // Add change event listeners
-  autoStart.addEventListener('change', saveSettings);
-  notifications.addEventListener('change', saveSettings);
-  
-  // Load settings on initialization
-  loadSettings();
 });

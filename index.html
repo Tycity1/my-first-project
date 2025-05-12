@@ -5,12 +5,14 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Real-Time Video & Audio Enhancer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/variables.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/animations.css">
     <link rel="stylesheet" href="styles/utilities.css">
+    <link rel="stylesheet" href="styles/toggle.css">
   </head>
   <body>
     <div class="app-container">
@@ -21,10 +23,11 @@
         </div>
         <div class="header-controls">
           <button id="settingsToggle" class="icon-button" aria-label="Toggle settings">
-            <span class="icon-settings">⚙️</span>
+            <i class="fas fa-cog"></i>
           </button>
           <button id="themeToggle" class="icon-button" aria-label="Toggle theme">
-            <span class="icon-theme">🌓</span>
+            <i class="fas fa-sun light-icon"></i>
+            <i class="fas fa-moon dark-icon"></i>
           </button>
         </div>
       </header>
@@ -34,7 +37,7 @@
           <div class="settings-header">
             <h3>Settings</h3>
             <button id="closeSettings" class="icon-button" aria-label="Close settings">
-              <span class="icon-close">×</span>
+              <i class="fas fa-times"></i>
             </button>
           </div>
           <div class="settings-content">
@@ -51,18 +54,6 @@
                 <label for="audioQuality">Sample Rate (Hz)</label>
                 <input type="number" id="audioQuality" min="8000" max="192000" step="100" value="48000" class="quality-input">
               </div>
-            </div>
-            <div class="settings-group">
-              <label class="settings-label">
-                <input type="checkbox" class="settings-checkbox" id="autoStart">
-                Auto-start enhancement
-              </label>
-            </div>
-            <div class="settings-group">
-              <label class="settings-label">
-                <input type="checkbox" class="settings-checkbox" id="notifications">
-                Show notifications
-              </label>
             </div>
           </div>
         </div>
@@ -81,14 +72,15 @@
         
         <section class="enhancement-controls">
           <div class="control-group">
-            <button id="videoEnhancement" class="enhancement-button">
-              <span class="enhancement-icon video-icon"></span>
-              <span class="enhancement-label">Video</span>
-            </button>
-            <button id="audioEnhancement" class="enhancement-button">
-              <span class="enhancement-icon audio-icon"></span>
-              <span class="enhancement-label">Audio</span>
-            </button>
+            <div class="control">
+              <div class="control__track">
+                <input type="radio" name="enhancement" id="audio" checked>
+                <label for="audio">Audio</label>
+                <input type="radio" name="enhancement" id="video">
+                <label for="video">Video</label>
+                <div class="indicator"></div>
+              </div>
+            </div>
           </div>
         </section>
         

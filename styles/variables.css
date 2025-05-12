@@ -89,9 +89,9 @@
   --transition-slow: 350ms;
   
   /* Layout */
-  --header-height: 60px;
-  --footer-height: 40px;
-  --container-width: 280px;
+  --header-height: 48px;
+  --footer-height: 32px;
+  --container-width: 320px;
   
   /* Z-Index Layers */
   --z-index-modal: 100;
@@ -130,24 +130,6 @@
 /* Media Queries */
 @media (max-width: 320px) {
   :root {
-    --container-width: 260px;
-  }
-}
-
-@media (min-width: 321px) and (max-width: 480px) {
-  :root {
     --container-width: 280px;
-  }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
-  :root {
-    --container-width: 320px;
-  }
-}
-
-@media (min-width: 769px) {
-  :root {
-    --container-width: 360px;
   }
 }
